@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+    public float speed;
 	// Use this for initialization
 	void Start () {
 		
@@ -22,7 +23,10 @@ public class PlayerMovement : MonoBehaviour {
         //normalise it
         relativePosition = relativePosition.normalized;
 
+        //get rid of Y value
+        relativePosition.y = 0.0f;
+
         //Move to the poition
-        gameObject.transform.Translate(relativePosition * Time.deltaTime);
+        gameObject.transform.Translate((relativePosition * speed) * Time.deltaTime);
     }
 }

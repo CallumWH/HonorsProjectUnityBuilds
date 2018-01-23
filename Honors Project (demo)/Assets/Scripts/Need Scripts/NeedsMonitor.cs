@@ -23,6 +23,7 @@ public class NeedsMonitor : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         listSize = currentNeeds.Count;
+        this.GetComponentInChildren<NeedsUIScript>().addToList();
         oldPosition = gameObject.transform.position;
 
         //default state
@@ -102,10 +103,12 @@ public class NeedsMonitor : MonoBehaviour {
 
         //State independant code
         //output debug value
+        /*
         for (int i = 0; i < listSize; i++)
         {
             Debug.Log(currentNeeds[i].GetFulfillmentTag() + currentNeeds[i].GetValue());
         }
+        */
     }
 
     void OnTriggerStay(Collider collider)
@@ -127,4 +130,6 @@ public class NeedsMonitor : MonoBehaviour {
             fillingNeed = false;
         }
     }
+
+    public int GetListSize() { return listSize; }
 }
